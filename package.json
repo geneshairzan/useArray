@@ -1,0 +1,28 @@
+{
+  "name": "gh-usearray",
+  "version": "1.0.1",
+  "description": "gh-usearray",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/geneshairzan/useArray.git"
+  },
+  "keywords": [
+    "react",
+    "hook",
+    "array",
+    "usearray"
+  ],
+  "author": "genesha.dev",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/geneshairzan/useArray/issues"
+  },
+  "homepage": "https://github.com/geneshairzan/useArray#readme",
+  "dependencies": {
+    "react": "^18.2.0"
+  }
+}
