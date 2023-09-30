@@ -1,7 +1,7 @@
 {
-  "name": "gh-usearray",
+  "name": "gh-usereact",
   "version": "1.0.1",
-  "description": "gh-usearray",
+  "description": "react helper and component library",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
