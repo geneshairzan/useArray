@@ -1,6 +1,6 @@
 {
   "name": "gh-usereact",
-  "version": "1.0.1",
+  "version": "1.0.5",
   "description": "react helper and component library",
   "main": "index.js",
   "scripts": {
@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/geneshairzan/useArray#readme",
   "dependencies": {
+    "moment": "^2.29.4",
     "react": "^18.2.0"
   }
 }

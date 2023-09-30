@@ -1,11 +1,13 @@
+import moment from "moment";
+
+const df_format = "DD MMM YYYY";
 const fdate = {
-  today: (format = "DD MMM YYYY") => moment(new Date()).format(format),
-  todayMonth: new Date().getFullMonth(),
-  todayYear: new Date().getFullYear(),
-  preformat: (data, format = "DD MMM YYYY") => moment(data, format),
-  format: (data) => moment(data).format("DD MMM YYYY"),
-  format_time: (data) => moment(data).format("DD MMM YYYY h.mma"),
-  format_excel: (data) => new Date(Math.round((data - 25569) * 86400 * 1000)),
+  today: moment().format(df_format),
+  todayMonth: moment().month(),
+  todayYear: moment().year(),
+  format: (data, format = "DD MMM YYYY") => moment(data).format(format),
+  formatTime: (data) => moment(data).utcOffset("+0800").format("DD MMM YYYY hh:mm a"),
+  formatExcel: (data) => new Date(Math.round((data - 25569) * 86400 * 1000)),
 
   datediff: (d1, d2 = new Date()) => {
     let a = moment(d1);
@@ -21,24 +23,10 @@ const fdate = {
     return `${Math.abs(years)} yr ${Math.abs(months)} months ${Math.abs(days)} days`;
   },
 
-  yrdiff: (d1, d2 = new Date()) => {
-    let a = moment(d1);
-    let b = moment(d2);
-
-    return Math.abs(a.diff(b, "year"));
-  },
-
-  isToday: (data) => {
-    return new Date(data).toDateString() === new Date().toDateString() ? true : false;
-  },
-
-  isThisMonth: (data) => {
-    return new Date(data).getMonth() === new Date().getMonth() ? true : false;
-  },
-
-  isThisYear: (data) => {
-    return new Date(data).getYear() === new Date().getYear() ? true : false;
-  },
+  yrdiff: (d1, d2 = new Date()) => Math.abs(moment(d1).diff(moment(d2), "year")),
+  isToday: (data) => (moment(data).format(df_format) === moment().format(df_format) ? true : false),
+  isThisMonth: (data) => (moment(data).month() === moment().month() ? true : false),
+  isThisYear: (data) => (moment(data).year() === moment().year() ? true : false),
 };
 
 // ==================================================================================================================
@@ -59,4 +47,4 @@ var formatter2 = new Intl.NumberFormat("en-US", {
 
 // ==================================================================================================================
 
-export { fdate, fcurr, ftime };
+export { fdate, fcurr };
